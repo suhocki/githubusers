@@ -3,6 +3,7 @@ package com.suhocki.githubusers.ui.userdetails
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.suhocki.githubusers.domain.userdetails.UserDetailsRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
@@ -18,6 +19,7 @@ class UserDetailsViewModel(
 
     init {
         viewModelScope.launch {
+            delay(500)
             runCatching {
                 userDetailsRepository.refresh(url)
             }.onFailure { error ->

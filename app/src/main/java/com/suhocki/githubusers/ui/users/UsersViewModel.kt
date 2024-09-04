@@ -30,7 +30,7 @@ class UsersViewModel(
 
     fun loadNextPage() {
         viewModelScope.launch {
-            delay(1000)
+            delay(500)
             runCatching {
                 usersRepository.refreshNextPage()
             }.onFailure { error ->
